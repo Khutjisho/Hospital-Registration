@@ -1,0 +1,15 @@
+<p>patient works!</p>
+<mat-card>
+    <mat-list *ngFor ="let Info of NewPatientArray">
+        {{Info.ID}}
+        {{Info.Name}}
+        {{Info.Surname}}
+        {{Info.Gend}}
+        {{Info.Number}}
+        {{Info.Address}}
+        {{Info.Record}}
+          <button mat-raised-button color="primary" [routerLink]= "['/AppointmentDetails',Info.ID]">APPOINTMENT</button>
+    </mat-list>
+  
+</mat-card>
+

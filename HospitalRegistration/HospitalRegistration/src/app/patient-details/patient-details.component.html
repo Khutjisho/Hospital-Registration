@@ -1,0 +1,19 @@
+<p>patient-details works!</p>
+
+<mat-card *ngIf= "ID">
+    <p>
+        {{ID}}
+        {{NewPatientArray.Name}}
+        {{NewPatientArray.Surname}}
+        {{NewPatientArray.Gend}}
+        {{NewPatientArray.Number}}
+        {{NewPatientArray.Address}}
+        {{NewPatientArray.Record}}
+    </p>
+    
+</mat-card><br>
+<mat-card>
+    <button mat-raised-button color="primary" [routerLink]="['/Admin']">Back</button>
+</mat-card>
+
+

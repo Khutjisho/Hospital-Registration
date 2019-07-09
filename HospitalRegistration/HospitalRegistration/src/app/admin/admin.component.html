@@ -1,0 +1,45 @@
+<p>admin works!</p>
+
+<mat-card class="excard">
+    <!-- <mat-card-header class="exheader"><h4>Create new task:</h4></mat-card-header> -->
+
+    ID Number<mat-form-field>
+        <input matInput placeholder="enter ID Number" onfocus="this.value= ''" [(ngModel)] = "IDNumber">
+      </mat-form-field><br>  
+    Patient Name:<mat-form-field>
+      <input matInput placeholder="enter Patient Name" onfocus="this.value= ''" [(ngModel)] = "PatientName">
+    </mat-form-field><br>
+    Patient Surname:<mat-form-field>
+        <input matInput placeholder="enter Patient Surname" onfocus="this.value= ''" [(ngModel)] = "PatientSurname">
+      </mat-form-field><br>
+
+    Gender:<mat-form-field>
+        <select matNativeControl placeholder="enter Patient dender" onfocus="this.value= ''" [(ngModel)] = "Gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        </select>
+      </mat-form-field><br>
+
+    Contact Number:<mat-form-field>
+        <input type = "tel" matInput placeholder="enter Contact Number" onfocus="this.value= ''" [(ngModel)] = "ContactNumber">
+      </mat-form-field><br>
+    Physical Address:<mat-form-field>
+        <input matInput placeholder="enter Physical Address" onfocus="this.value= ''" [(ngModel)] = "PhysicalAddress">
+      </mat-form-field><br>
+    Medical Record:<mat-form-field>
+        <textarea matInput placeholder="enter medical records comments" onfocus="this.value= ''" [(ngModel)] = "MedicalRecord"></textarea>
+      </mat-form-field><br>
+
+    <button mat-raised-button color="accent" (click) = "AddPatient(IDNumber, PatientName, PatientSurname, Gender, ContactNumber, PhysicalAddress, MedicalRecord)">Add</button>
+</mat-card> <br>
+
+
+<h3>Registered Patients:</h3>
+<mat-card>
+<p *ngFor = "let Info of NewPatientArray">
+  {{Info.ID}}
+<button mat-raised-button color="accent" (click) = "RemovePatient(Info)">Delete</button>
+<!-- <button mat-raised-button color="accent" (click) = "RemovePatient(Info)">Edit</button> -->
+<button mat-raised-button color="accent" [routerLink]= "['/PatientDetails',Info.ID]">View Patient Details</button>
+  </p>
+</mat-card>

@@ -1,0 +1,45 @@
+<p>appointment-details works!</p>
+
+
+<mat-card>
+        <h4>Create Patient Appointment:</h4>
+    Patient ID: <mat-form-field>
+        <input matInput placeholder="enter ID" [(ngModel)]= "ID"/>
+    </mat-form-field><br>
+    
+    Appointment Reason: <mat-form-field>
+        <input matInput placeholder="enter appointment reason" onfocus="this.value= ''" [(ngModel)]= "AppReason"/>
+    </mat-form-field><br>
+    
+    Appointment Date: <mat-form-field>
+        <input matInput placeholder="enter date" onfocus="this.value= ''" [(ngModel)]= "AppDate" type="date"/>
+    </mat-form-field><br>
+    
+    Appointment Doctor: <mat-form-field>
+        <select matNativeControl placeholder="enter date" onfocus="this.value= ''" [(ngModel)]="AppDoctor">
+            <option value="Dr Haward">Dr Haward</option>
+            <option value="Dr Musa">Dr Musa</option>
+            <option value="Dr Mathebula">Dr Mathebula</option>
+            <option value="Dr Nkosi">Dr Nkosi</option>
+            <option value="Dr Steward">Dr Steward</option>
+        </select> 
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" [routerLink]="['/Patient']">Back</button>
+    <button mat-raised-button color="primary" (click)="AddAppointment(ID, AppReason, AppDate, AppDoctor)">Add Appointment</button>
+    
+    </mat-card>
+    
+    <mat-card>
+    
+         <p *ngFor= "let Appointments of NewAppointment">
+                {{Appointments.ID}}
+                {{Appointments.appreason}}
+                {{Appointments.appdate}}                
+                {{Appointments.appdoctor}}
+    
+                <button mat-raised-button color="primary" (click)= "RemoveAppointment(Appointments)">Delete</button>
+                <button mat-raised-button color="primary" (click)= "EditAppointment(Appointments)">Edit</button>
+                <!-- <button mat-raised-button color="primary" [routerLink]="['/AppointmentDetails',Appointments.ID]" >View Appointment</button> -->
+         </p>
+       
+    </mat-card>
